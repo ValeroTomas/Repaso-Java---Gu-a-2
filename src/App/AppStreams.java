@@ -33,6 +33,7 @@ public class AppStreams {
         System.out.println("2. Obtener lista de nombres de productos por categoria.");
         System.out.println("3. Buscar productos más barato por categoría.");
         System.out.println("4. Mostrar total de productos en el almacen.");
+        System.out.println("5. Mostrar si todos los productos tienen stock.");
 
         System.out.println("\nElija un ejercicio: ");
         switch (scanner.nextInt()) {
@@ -77,6 +78,13 @@ public class AppStreams {
 
             case 5:
                 System.out.println("--- Ejercicio 5 ---");
+                boolean stockDisponible = productos.stream().allMatch(producto -> producto.getStock() > 0);
+                if (stockDisponible) {
+                    System.out.println("Todos los productos tienen stock.");
+                }
+                else {
+                    System.out.println("No todos los productos tienen stock disponible.");
+                }
                 break;
 
             default:
